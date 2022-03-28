@@ -1,17 +1,19 @@
 ## Sierpinski ~~Pyramids~~ (Half-Octahedrons)
-Spiral Vase mode is really cool. While a normal 3D print goes layer by layer, completly finishing one before moving on to the next, spiral vase mode lets you constuct a 3D object with a single, continous line that is constantly moving upwards and following the outline of your part.
+Spiral Vase mode is really cool. While a normal 3D print goes layer by layer, completely finishing one before moving on to the next, spiral vase mode lets you construct a 3D object with a single, continuous line that is constantly moving upwards and following the outline of your part.
 
-Usually this feature is used for making vases with thin, continous crossections but we can "repurpose" this feature to print other cool objects.
+![image](https://user-images.githubusercontent.com/16441759/160357191-bde083d0-6133-4613-a5f8-350b79a6e0da.png)
 
-One such object is the "sierpinski pryamid" that you can find a lot of models for on [Thingiverse](https://www.thingiverse.com/thing:1356547).
+Usually, this feature is used for making vases with thin, continuous crosssections but we can "repurpose" this feature to print other cool objects.
 
-While these are called Sierpinski pryamids/tetrahedrons, but they are actually half of an Sierpinski octahedron. The reasoning behind this is that unlinke a Sierpinksi tetrahedron that has discontinous cross-sections, any horixzontial cross section of Sierpinski octahedron is a cloased, continous Sierpiński curve. This means that a Sierpinksi octahedron can be easily printed in sprila vase mode.
+One such object is the "Sierpinski pyramid" that you can find a lot of models for on [Thingiverse](https://www.thingiverse.com/thing:1356547).
 
-We also only want half an octahedron instead of the whole solid so there is a falt base that can rest on the print bed.
+While these are called Sierpinski pyramids/tetrahedrons, they actually are half of a Sierpinski octahedron. The reasoning behind this is that, unlike a Sierpinski tetrahedron that has discontinuous cross-sections, any horizontal cross-section of a Sierpinski octahedron is a closed, continuous Sierpiński curve. This means that a Sierpinski octahedron can be easily printed in spiral vase mode.
 
-The main issue with all of the current models is that the code used to geenrate them is borderline unreadable with random constants and vairable names. So I dieded one afternoon to write a simple python geneator scipt to make my own pryamids that I could make into whatever I wanted.
+We also only want half an octahedron instead of the whole solid so there is a flat base that can rest on the print bed.
 
-Currently the easiet way to programacgitally generate 3D models is [OpenSCAD](https://openscad.org) but thankfully there are many wrappers avaliable that can generate openscad code from python. I chose to use [SolidPython](https://github.com/SolidCode/SolidPython) and made a short, **verbose** >:( script to generate the models.
+The main issue with all of the current models is that the code used to generate them is borderline unreadable with random constants and variable names. So I decided one afternoon to write a simple python generator script to make my own pyramids that I could integrate into whatever I wanted.
+
+Currently, the easiest way to programmatically generate 3D models is [OpenSCAD](https://openscad.org) but thankfully there are many wrappers available that can generate OpenSCAD code from python. I chose to use [SolidPython](https://github.com/SolidCode/SolidPython) and made a short, **verbose** >:( script to generate the models.
 ```python
 from solid import *
 from solid.utils import *
