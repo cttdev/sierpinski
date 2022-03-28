@@ -1,17 +1,32 @@
 ## Sierpinski ~~Pyramids~~ (Half-Octahedrons)
-Spiral Vase mode is really cool. While a normal 3D print goes layer by layer, completely finishing one before moving on to the next, spiral vase mode lets you construct a 3D object with a single, continuous line that is constantly moving upwards and following the outline of your part.
+A Sierpinski octahedron or octahedron flake has the intresting property that all of its horizontial corss sections are closed, continous [Sierpinkski curves](https://en.wikipedia.org/wiki/Sierpiński_curve).
 
-![image](https://user-images.githubusercontent.com/16441759/160357191-bde083d0-6133-4613-a5f8-350b79a6e0da.png)
+<p align="center">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Octaedron_fractal.jpg" alt>
+</p>
+<p align="center">
+    <em>A 3 iteration octahedron flake from Wikipedia.</em>
+</p>
 
-Usually, this feature is used for making vases with thin, continuous crosssections but we can "repurpose" this feature to print other cool objects.
+This property lets us easily 3D print a model of the flake using a method known as speila vase mode. While a normal 3D print goes layer by layer, completely finishing one before moving on to the next, spiral vase mode lets you construct a 3D object with a single, continuous line that is constantly moving upwards and following the outline of your part.
 
-One such object is the "Sierpinski pyramid" that you can find a lot of models for on [Thingiverse](https://www.thingiverse.com/thing:1356547).
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/16441759/160357191-bde083d0-6133-4613-a5f8-350b79a6e0da.png" alt>
+</p>
+<p align="center">
+    <em>A vase I printed in spiral vase mode.</em>
+</p>
 
-While these are called Sierpinski pyramids/tetrahedrons, they actually are half of a Sierpinski octahedron. The reasoning behind this is that, unlike a Sierpinski tetrahedron that has discontinuous cross-sections, any horizontal cross-section of a Sierpinski octahedron is a closed, continuous Sierpiński curve. This means that a Sierpinski octahedron can be easily printed in spiral vase mode.
 
-We also only want half an octahedron instead of the whole solid so there is a flat base that can rest on the print bed.
+Since each cross section of the octahedron falke is a closed loop, we can join them together at arbitary points to represent the surface of the flake with a single line, then print that line with spiral vase mode to construct our fractal.
 
-The main issue with all of the current models is that the code used to generate them is borderline unreadable with random constants and variable names. So I decided one afternoon to write a simple python generator script to make my own pyramids that I could integrate into whatever I wanted.
+Typically, only half of an octahedron falke is generated/printed as it gives then model a large face that can be attached to the print bed. 
+
+
+
+This method has been implment by numerous people before on [Thingiverse](https://www.thingiverse.com/thing:1356547).
+
+However, the  issue with all of the currently avaible models is that the code used to generate them is borderline unreadable with random constants and variable names. So I decided one afternoon to write a simple python generator script to make my own pyramids that I could integrate into whatever I wanted.
 
 Currently, the easiest way to programmatically generate 3D models is [OpenSCAD](https://openscad.org) but thankfully there are many wrappers available that can generate OpenSCAD code from python. I chose to use [SolidPython](https://github.com/SolidCode/SolidPython) and made a short, **verbose** >:( script to generate the models.
 ```python
