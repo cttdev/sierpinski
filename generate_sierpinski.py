@@ -8,7 +8,7 @@ def calculate_height(size):
 
 def generate_pyramid(size, height, solid_model_offset=0.0):
     # Generates a square pryamid of a given size and height with the center of the base at the origin.
-    # Solid model offset is a hack to get the pryamid to generate as a single solid model for sprial vase mode printing.
+    # Solid model offset is a hack to get the pryamid to generate as a single solid model for sprial vase mode printing. It adds a scalar to the size of the pryamid.
     return polyhedron(
         [   
             # Points of a square pryamid.
