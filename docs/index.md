@@ -1,4 +1,7 @@
 ## Sierpinski ~~Pyramids~~ (Half-Octahedrons)
+How I made Sierpinski "Pryamid" Keychains.
+
+### N-Flake Fractals
 A Sierpinski octahedron or octahedron flake has the intresting property that all of its horizontial corss sections are closed, continous [Sierpinkski curves](https://en.wikipedia.org/wiki/Sierpiński_curve).
 
 <p align="center">
@@ -22,13 +25,9 @@ Since each cross section of the octahedron falke is a closed loop, we can join t
 
 Typically, only half of an octahedron falke is generated/printed as it gives then model a large face that can be attached to the print bed. 
 
+This method has been implment by numerous people before on [Thingiverse](https://www.thingiverse.com/thing:1356547); however, the  issue with all of the currently avaible models is that the code used to generate them is borderline unreadable with random constants and variable names. So I decided to write a simple python generator script to make my own fractals that I could turn into cool keychains.
 
-
-This method has been implment by numerous people before on [Thingiverse](https://www.thingiverse.com/thing:1356547).
-
-However, the  issue with all of the currently avaible models is that the code used to generate them is borderline unreadable with random constants and variable names. So I decided one afternoon to write a simple python generator script to make my own pyramids that I could integrate into whatever I wanted.
-
-Currently, the easiest way to programmatically generate 3D models is [OpenSCAD](https://openscad.org) but thankfully there are many wrappers available that can generate OpenSCAD code from python. I chose to use [SolidPython](https://github.com/SolidCode/SolidPython) and made a short, **verbose** >:( script to generate the models.
+Currently, the easiest way to programmatically generate 3D models is [OpenSCAD](https://openscad.org) and there are many wrappers available that can generate OpenSCAD code from python. I chose to use [SolidPython](https://github.com/SolidCode/SolidPython) and made a short, **verbose** script to generate the models.
 ```python
 from solid import *
 from solid.utils import *
@@ -123,48 +122,61 @@ if __name__ == '__main__':
     scad_render_to_file(a, filepath="sierpinski-{}-{}-{}.scad".format(iterations, size, solid_model_offset), include_orig_code=False)
 ```
 
-Since the recursion is handled during the OpenSCAD code generation, the generated file size gros exponentially with the number of iterations so you shouldn't really generate anything over 6 iterations. However, the method used can realtivelty easily be reworked into prue OpenSCAD code. That is left as an excerise for the reader.
+Since the recursion is handled during the OpenSCAD code generation, the generated file size grows exponentially with the number of iterations so you shouldn't really generate anything over 6 iterations with this code. However, the method used can realtivelty easily be reworked into prue OpenSCAD code to get around the file size limitations.
 
-![image](https://user-images.githubusercontent.com/16441759/160354859-0dbb073e-5385-4350-9cb4-e03ad5af2044.png)
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/16441759/160354859-0dbb073e-5385-4350-9cb4-e03ad5af2044.png" alt>
+</p>
+<p align="center">
+    <em>A 4 recursion pryamid I generated.</em>
+</p>
 
-After generating some pryamids, I dedcided to make keychains out of them. It was realticlty easy to export the OpenSCAD code as a .cfg file then import it into yet another sketchy CAD software: FreeCAD. There I could add the keychain base and export everything as and STL for printing.
+### Printability
+One part of the code that I have ignore up unitl now is the `solid_model_offset`, which is what allows these generated pryamids to be printable. Without the offset, each "pryamid" created by the resuion is treated as a seperate body, only joined to another at a single pont. While this is the geometrically accurate represneation of the octahedron flake, inforder for the model to be printable, it must be a single solid body. Thus, the offset appleies a scalr to the base of each indivual pryamid (scaling the heights accorsdingly to make the pryamids equaliterial) that results in the pryamids intresting each other in the model. In my models, this offset was set to the nozzle/line width (0.4mm).
 
-![image](https://user-images.githubusercontent.com/16441759/160355747-7b69ac51-e2c5-46f6-81fa-4283e271f765.png)
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/16441759/160552714-5573e15d-0d6a-4bb1-ad54-bab7c27b65c7.png" alt>
+</p>
+<p align="center">
+    <em>A 4 recursion pryamid without the solid model offset.</em>
+</p>
 
-The design of the keychain was partially driven by the diemnsions of my RatRig V-Core 3. Since these were printed in sprial vase mode, I had to print each one "indivudally" before moving onto the next. I also wanted to print ~20 and didn't want to manually have to restart the print everytime. So, when the printer finshed one keychain, there had to be enough space so that it could print another one right next to the first without the toolehead hitting anything. THis meant that I could print 9 keychains at a time and they had to be short enough not to hit the printer x gantry.
+
+### Keychains
+While I could have also programtically generated the keychain base in OpenSCAD, it was much easier to expoert the geometry of the prysamid and add the base in parametic CAd software. The only issue with this approach was that OpenSCAD only lets you export the native geometry as a .csg file which only FreeCAD supports, and I had no idea how to use FreeCAD.
+
+After messing around with FreeCAD's horrible sketching interface for an hour, I made the base of the pryamid and was able to combine that with the raw OpenSCAD geometry.
+
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/16441759/160355747-7b69ac51-e2c5-46f6-81fa-4283e271f765.png" alt>
+</p>
+<p align="center">
+    <em>Finihsed model in FreeCAD</em>
+</p>
 
 
+The design of the keychain was partially driven by the diemnsions of my 3D printer. Since the pryamids were printed in sprial vase mode, I had to print each one "indivudally" before moving onto the next. Since I had to make ~20 keychains, I didn't want to have to resart the print every time.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+To get around this, I could take advantage of the 400mm^2 bed of the RatRig V-Core 3 and print multiple pryamids, side by side. The only caviat with this method is that each pryamid had to be far enough from the others that the print head could mode around it without hitting completed pryamids and the pryamids had to be shorter than the x gantry so it could pass over them.
 
-### Markdown
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/16441759/160554253-99451645-cdfe-43f1-b21b-5dee57bf2e93.png" alt>
+</p>
+<p align="center">
+    <em>A view of the printhead clerance regions in Prusaslicer. I could do a maximum of 9 at a time.</em>
+</p>
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Each keychain was printed at 200 mm/s with 4500 mm/s^2 acceleration which is realtively conservaite for the V-Core 3 but I wanted to be sure that the small features came out well.
 
-```markdown
-Syntax highlighted code block
+### MIT Logo
+Wanting to make the keychains more detailed, I decided to embosss a MIT logo into the first layer. This was realtively easy as I found an SVG that I converted to a DXF with Inkscape.
 
-# Header 1
-## Header 2
-### Header 3
+![image](https://user-images.githubusercontent.com/16441759/160555154-39bd8523-71a0-46be-8254-fae2531be101.png)
 
-- Bulleted
-- List
+Used the DXF to extrude a solid the height of the first layer in Onshape.
 
-1. Numbered
-2. List
+Mirrored the logo to get it to show up the right way on the bottom of the object.
 
-**Bold** and _Italic_ and `Code` text
+And finally, exported the Onshape bodies as an STL and used that as a negative volume on the pyramid in Prusaslicer.
+![image](https://user-images.githubusercontent.com/16441759/160556087-50c67a2f-8f4c-4d38-b161-31568281fe9d.png)
 
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/cttdev/sierpinski/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
