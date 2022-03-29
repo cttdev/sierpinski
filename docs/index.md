@@ -11,7 +11,7 @@ A Sierpinski octahedron or octahedron flake has the interesting property that al
     <em>A 3 iteration octahedron flake from Wikipedia.</em>
 </p>
 
-This property lets us easily 3D print a model of the flake using a method known as spiral vase mode. While a normal 3D print goes layer by layer, completely finishing one before moving on to the next, spiral vase mode lets you construct a 3D object with a single, continuous line that is constantly moving upwards and following the outline of your part.
+This property lets us easily 3D print a model of the flake using spiral vase mode. While a normal 3D print goes layer by layer, completely finishing one before moving on to the next, spiral vase mode lets you construct a 3D object with a single, continuous line that is constantly moving upwards and following the outline of your part.
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/16441759/160357191-bde083d0-6133-4613-a5f8-350b79a6e0da.png" alt>
@@ -122,7 +122,7 @@ if __name__ == '__main__':
     scad_render_to_file(a, filepath="sierpinski-{}-{}-{}.scad".format(iterations, size, solid_model_offset), include_orig_code=False)
 ```
 
-Since the recursion is handled during the OpenSCAD code generation, the generated file size grows exponentially with the number of iterations so you shouldn't really generate anything over 6 iterations with this code. However, the method used can be relatively easily reworked into pure OpenSCAD code to get around the file size limitations.
+Since the recursion is handled during the OpenSCAD code generation, the generated file size grows exponentially with the number of iterations so you shouldn't really generate anything over 6 iterations with this code. However, the method used can be easily reworked into pure OpenSCAD code to get around the file size limitations. This is left as an excerise for the reader.
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/16441759/160354859-0dbb073e-5385-4350-9cb4-e03ad5af2044.png" alt>
@@ -132,7 +132,7 @@ Since the recursion is handled during the OpenSCAD code generation, the generate
 </p>
 
 ### Printability
-One part of the code that I have ignore up until now is the `solid_model_offset`, which is what allows these generated pryamids to be printable. Without the offset, each "pryamid" created by the reunion is treated as a separate body, only joined to another at a single point. While this is the geometrically accurate representation of the octahedron flake, in order for the model to be printable, it must be a single solid body. Thus, the offset applies a scalar to the base of each induvial pyramid (scaling the heights accordingly to make the pryamids equilateral) that results in the pryamids intersecting each other in the model. In my models, this offset was set to the nozzle/line width (0.4mm).
+One part of the code that I have ignored up until now is the `solid_model_offset`, which is what allows these generated pryamids to be printable. Without the offset, each smll "pryamid" created by the recursion is treated as a separate body, only joined to each other at a single point. While this is the geometrically accurate representation of the octahedron flake, in order for the model to be printable, it must be a single solid body. Thus, the offset applies a scalar to the base of each induvial pyramid (scaling the heights accordingly to make the pryamids equilateral) that results in the pryamids intersecting each other in the model. In my models, this offset was set to the nozzle/line width (0.4mm).
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/16441759/160552714-5573e15d-0d6a-4bb1-ad54-bab7c27b65c7.png" alt>
@@ -143,7 +143,7 @@ One part of the code that I have ignore up until now is the `solid_model_offset`
 
 
 ### Keychains
-While I could have also programmatically generated the keychain base in OpenSCAD, it was much easier to export the geometry of the pryamid and add the base in parametric CAD software. The only issue with this approach was that OpenSCAD only lets you export the native geometry as a .csg file which only FreeCAD supports, and I had no idea how to use FreeCAD.
+While I could have also programmatically generated the keychain base in OpenSCAD, it was much easier to export the geometry of the pryamid and add the base in a parametric CAD software. The only issue with this approach was that OpenSCAD only lets you export the native geometry as a .csg file which is only supported by FreeCAD, and FreeCAD is a pain to use.
 
 After messing around with FreeCAD's horrible sketching interface for an hour, I made the base of the pryamid and was able to combine that with the raw OpenSCAD geometry.
 
@@ -154,16 +154,22 @@ After messing around with FreeCAD's horrible sketching interface for an hour, I 
     <em>Finished model in FreeCAD</em>
 </p>
 
-
 The design of the keychain was partially driven by the dimensions of my 3D printer. Since the pryamids were printed in spiral vase mode, I had to print each one "individually" before moving onto the next. Since I had to make ~20 keychains, I didn't want to have to restart the print every time.
 
 To get around this, I could take advantage of the 400mm^2 bed of the RatRig V-Core 3 and print multiple pryamids, side by side. The only caveat with this method is that each pryamid had to be far enough from the others that the print head could mode around it without hitting completed pryamids and the pryamids had to be shorter than the x gantry so it could pass over them.
 
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/16441759/160554253-99451645-cdfe-43f1-b21b-5dee57bf2e93.png" alt>
+    <img src="https://user-images.githubusercontent.com/16441759/160666341-fbcee9dc-893d-411b-b3ab-d23329761b7c.png" alt>
 </p>
 <p align="center">
-    <em>A view of the printhead clearance regions in Prusaslicer. I could do a maximum of 9 at a time.</em>
+    <em>A view of the printhead clearance regions in Prusaslicer. I could print a maximum of 9 at a time.</em>
+</p>
+
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/16441759/160667228-e6b3fa9c-bea0-4ca9-8cf9-3d885b92294d.png" alt>
+</p>
+<p align="center">
+    <em>A gcode preview of the models being printed one at a time.</em>
 </p>
 
 Each keychain was printed at 200 mm/s with 4500 mm/s^2 acceleration which is relatively conservative for the V-Core 3 but I wanted to be sure that the small features came out well.
@@ -184,11 +190,12 @@ Mirrored the logo to get it to show up the right way on the bottom of the object
 
 And finally, exported the Onshape bodies as an STL and used that as a negative volume on the pyramid in Prusaslicer.
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/16441759/160556087-50c67a2f-8f4c-4d38-b161-31568281fe9d.png" alt>
+    <img src="https://user-images.githubusercontent.com/16441759/160666612-2f55e5c9-9078-4494-b30b-924b3ddf316a.png" alt>
 </p>
 <p align="center">
     <em>The MIT logo on the bottom layer of the model.</em>
 </p>
+
 
 ### Printing 🎉
 Printing the "pryamids" went relatively smoothly thanks to the checks and preparation of the model beforehand. Initially, I was printing the first layer too fast so the MIT logo lost some detail but after slowing it down, it showed up really well.
@@ -197,5 +204,5 @@ Printing the "pryamids" went relatively smoothly thanks to the checks and prepar
     <img src="https://i.imgur.com/LLkTUQY.gif" alt>
 </p>
 <p align="center">
-    <em>The MIT logo on the bottom layer of the model.</em>
+    <em>A view of the Sierpinski curves in each cross-section of the fractal.</em>
 </p>
