@@ -1,4 +1,4 @@
-## Sierpinski ~~Pyramids~~ (Half-Octahedrons)
+## Sierpinski ~~Pyramids~~ (Half-Octahedron Flakes)
 How I made Sierpinski "Pryamid" Keychains.
 
 ### N-Flake Fractals
@@ -171,12 +171,32 @@ Each keychain was printed at 200 mm/s with 4500 mm/s^2 acceleration which is rea
 ### MIT Logo
 Wanting to make the keychains more detailed, I decided to embosss a MIT logo into the first layer. This was realtively easy as I found an SVG that I converted to a DXF with Inkscape.
 
-![image](https://user-images.githubusercontent.com/16441759/160555154-39bd8523-71a0-46be-8254-fae2531be101.png)
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/16441759/160555154-39bd8523-71a0-46be-8254-fae2531be101.png" alt>
+</p>
+<p align="center">
+    <em>The MIT logo in Inkscape.</em>
+</p>
 
 Used the DXF to extrude a solid the height of the first layer in Onshape.
 
 Mirrored the logo to get it to show up the right way on the bottom of the object.
 
 And finally, exported the Onshape bodies as an STL and used that as a negative volume on the pyramid in Prusaslicer.
-![image](https://user-images.githubusercontent.com/16441759/160556087-50c67a2f-8f4c-4d38-b161-31568281fe9d.png)
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/16441759/160556087-50c67a2f-8f4c-4d38-b161-31568281fe9d.png" alt>
+</p>
+<p align="center">
+    <em>The MIT logo on the bottom layer of the model.</em>
+</p>
+
+### Printing 🎉
+Printing the "pryamids" went realvitly smoothly thanks to the checks and preparets of the model beforehand. Initially, I was printing the first layer too fast so the MIT logo lost some detail but after slowing it down, it showed up really well.
+
+<p align="center">
+    <img src="https://i.imgur.com/LLkTUQY.gif" alt>
+</p>
+<p align="center">
+    <em>The MIT logo on the bottom layer of the model.</em>
+</p>
 
