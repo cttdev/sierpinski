@@ -9,7 +9,7 @@ How I made Sierpinski "Pryamid" Keychains.
 </p>
 
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/16441759/160936312-2ce663da-6c52-411b-9e8c-36d12c96c889.png" alt>
+    <img src="" alt>
 </p>
 <p align="center">
     <em>All 21 pryamids.</em>
