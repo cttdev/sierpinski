@@ -8,7 +8,7 @@ How I made Sierpinski "Pyramid" Keychains.
     <em>A "pyramid".</em>
 </p>
 
-<br> 
+<br>
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/16441759/161213695-07ffa7c9-1215-4d3a-990f-35feb0f1c2f9.png" alt>
@@ -17,7 +17,7 @@ How I made Sierpinski "Pyramid" Keychains.
     <em>Printing the fractals.</em>
 </p>
 
-<br> 
+<br>
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/16441759/160936312-2ce663da-6c52-411b-9e8c-36d12c96c889.png" alt>
@@ -231,6 +231,8 @@ Printing the "pyramids" went relatively smoothly thanks to the checks and prepar
 <p align="center">
     <em>A view of the Sierpinski curves in each cross-section of the fractal.</em>
 </p>
+
+<br>
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/16441759/161213530-a5dd2907-b0b1-4358-90e8-7a42c1ce78d6.png" alt>
