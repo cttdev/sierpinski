@@ -245,7 +245,11 @@ Here are some videos of printing everything on the RatRig V-Core 3 I built:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/EMgGIIW_hDI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+<br>
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ogvxI96tBlE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<br>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cC4vore8kck" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
