@@ -23,7 +23,7 @@ How I made Sierpinski "Pyramid" Keychains.
     <img src="https://user-images.githubusercontent.com/16441759/160936312-2ce663da-6c52-411b-9e8c-36d12c96c889.png" alt>
 </p>
 <p align="center">
-    <em>All 21 pyramid.</em>
+    <em>All 21 pyramids.</em>
 </p>
 
 ### N-Flake Fractals
