@@ -176,7 +176,7 @@ After messing around with FreeCAD's horrible sketching interface for an hour, I 
     <img src="https://user-images.githubusercontent.com/16441759/160355747-7b69ac51-e2c5-46f6-81fa-4283e271f765.png" alt>
 </p>
 <p align="center">
-    <em>Finished model in FreeCAD</em>
+    <em>Finished model in FreeCAD.</em>
 </p>
 
 The design of the keychain was partially driven by the dimensions of my 3D printer. Since the pyramids were printed in spiral vase mode, I had to print each one "individually" before moving onto the next. Since I had to make ~20 keychains, I didn't want to have to restart the print every time.
