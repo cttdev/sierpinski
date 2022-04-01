@@ -2,14 +2,25 @@
 How I made Sierpinski "Pryamid" Keychains.
 
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/16441759/160936312-2ce663da-6c52-411b-9e8c-36d12c96c889.png" alt>
+    <img src="https://user-images.githubusercontent.com/16441759/161213672-231cce4c-bea6-4edd-a4b0-b957410ad1a6.png" alt>
 </p>
 <p align="center">
-    <em>All 21 pryamids.</em>
+    <em>A "pryamid".</em>
 </p>
 
+<br> 
+
 <p align="center">
-    <img src="" alt>
+    <img src="https://user-images.githubusercontent.com/16441759/161213695-07ffa7c9-1215-4d3a-990f-35feb0f1c2f9.png" alt>
+</p>
+<p align="center">
+    <em>Printing the fractals.</em>
+</p>
+
+<br> 
+
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/16441759/160936312-2ce663da-6c52-411b-9e8c-36d12c96c889.png" alt>
 </p>
 <p align="center">
     <em>All 21 pryamids.</em>
@@ -220,3 +231,18 @@ Printing the "pryamids" went relatively smoothly thanks to the checks and prepar
 <p align="center">
     <em>A view of the Sierpinski curves in each cross-section of the fractal.</em>
 </p>
+
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/16441759/161213530-a5dd2907-b0b1-4358-90e8-7a42c1ce78d6.png" alt>
+</p>
+<p align="center">
+    <em>MIT Logo.</em>
+</p>
+
+Here are some videos of printing everything:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EMgGIIW_hDI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ogvxI96tBlE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cC4vore8kck" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
