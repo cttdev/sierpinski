@@ -246,3 +246,5 @@ Here are some videos of printing everything:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ogvxI96tBlE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cC4vore8kck" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Overall, I really enjoyed this project and was pretty happy with the end result. There are definitely ways I want to improve the code in the future, like fixing issues with some of the layer geometries, but for this specific use case, the process and script I developed worked very well.
