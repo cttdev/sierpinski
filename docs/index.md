@@ -5,7 +5,7 @@ How I made Sierpinski "Pyramid" Keychains.
     <img src="https://user-images.githubusercontent.com/16441759/161213672-231cce4c-bea6-4edd-a4b0-b957410ad1a6.png" alt>
 </p>
 <p align="center">
-    <em>A "pyramid".</em>
+    <em>A "pyramid."</em>
 </p>
 
 <br>
