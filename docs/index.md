@@ -1,11 +1,11 @@
 ## Sierpinski ~~Pyramids~~ (Half-Octahedron Flakes)
-How I made Sierpinski "Pryamid" Keychains.
+How I made Sierpinski "Pyramid" Keychains.
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/16441759/161213672-231cce4c-bea6-4edd-a4b0-b957410ad1a6.png" alt>
 </p>
 <p align="center">
-    <em>A "pryamid".</em>
+    <em>A "pyramid".</em>
 </p>
 
 <br> 
@@ -23,7 +23,7 @@ How I made Sierpinski "Pryamid" Keychains.
     <img src="https://user-images.githubusercontent.com/16441759/160936312-2ce663da-6c52-411b-9e8c-36d12c96c889.png" alt>
 </p>
 <p align="center">
-    <em>All 21 pryamids.</em>
+    <em>All 21 pyramid.</em>
 </p>
 
 ### N-Flake Fractals
@@ -59,15 +59,15 @@ from solid.utils import *
 import math
 
 def calculate_height(size):
-    # Returns the height of an equilateral square pryamid given the size of its base.
+    # Returns the height of an equaliterial sqaure pyramid given the size of its base.
     return (1.0 / math.sqrt(2.0)) * size
 
 def generate_pyramid(size, height, solid_model_offset=0.0):
-    # Generates a square pryamid of a given size and height with the center of the base at the origin.
-    # Solid model offset is a hack to get the pryamid to generate as a single solid model for spiral vase mode printing. It adds a scalar to the size of the pryamid.
+    # Generates a square pyramid of a given size and height with the center of the base at the origin.
+    # Solid model offset is a hack to get the pyramid to generate as a single solid model for sprial vase mode printing. It adds a scalar to the size of the pyramid.
     return polyhedron(
         [   
-            # Points of a square pryamid.
+            # Points of a square pyramid.
             [size/2 + solid_model_offset, size/2 + solid_model_offset, 0],
             [-size/2 - solid_model_offset, size/2 + solid_model_offset, 0],
             [-size/2 - solid_model_offset, -size/2 - solid_model_offset, 0],
@@ -83,11 +83,11 @@ def generate_pyramid(size, height, solid_model_offset=0.0):
         ]
     )
 
-def sirpinski(iterations, size, solid_model_offset=0.0):
+def sierpinski(iterations, size, solid_model_offset=0.0):
     if iterations == 0:
         return generate_pyramid(size, calculate_height(size + 2 * solid_model_offset), solid_model_offset)
 
-    # Each pryamid is filled with pryamids half of its size.
+    # Each pyramid is filled with pyramids half of its size.
     size = size/2
     height = calculate_height(size)
 
@@ -107,16 +107,16 @@ def sirpinski(iterations, size, solid_model_offset=0.0):
         rotate([0, 0, 0]),
         rotate([0, 0, 0]),
         rotate([0, 0, 0]),
-        rotate([180, 0, 0]) # Flipped pryamid to make the half octahedron.
+        rotate([180, 0, 0]) # Flipped pyramid to make the half octahedron.
     ]
         
-    # Recursively generate the pryamid.
+    # Recursively generate the pyramid.
     pyramids = []
     for i in range(0, len(translations)):
         pyramids.append(
             translations[i](
                 rotations[i](
-                    sirpinski(iterations-1, size, solid_model_offset)
+                    sierpinski(iterations-1, size, solid_model_offset)
                 )
             )
         )
@@ -136,7 +136,7 @@ def assembly():
     solid_model_offset = 0.4
 
     a = union()
-    a = sirpinski(iterations, size, solid_model_offset)
+    a = sierpinski(iterations, size, solid_model_offset)
     a = remove_solid_model_artifacts(a, size)
 
     return a, iterations, size, solid_model_offset
@@ -153,24 +153,24 @@ Since the recursion is handled during the OpenSCAD code generation, the generate
     <img src="https://user-images.githubusercontent.com/16441759/160354859-0dbb073e-5385-4350-9cb4-e03ad5af2044.png" alt>
 </p>
 <p align="center">
-    <em>A 4 recursion pryamid I generated.</em>
+    <em>A 4 recursion pyramid I generated.</em>
 </p>
 
 ### Printability
-One part of the code that I have ignored up until now is the `solid_model_offset`, which is what allows these generated pryamids to be printable. Without the offset, each smll "pryamid" created by the recursion is treated as a separate body, only joined to each other at a single point. While this is the geometrically accurate representation of the octahedron flake, in order for the model to be printable, it must be a single solid body. Thus, the offset applies a scalar to the base of each induvial pyramid (scaling the heights accordingly to make the pryamids equilateral) that results in the pryamids intersecting each other in the model. In my models, this offset was set to the nozzle/line width (0.4mm).
+One part of the code that I have ignored up until now is the `solid_model_offset`, which is what allows these generated pyramids to be printable. Without the offset, each smll "pyramid" created by the recursion is treated as a separate body, only joined to each other at a single point. While this is the geometrically accurate representation of the octahedron flake, in order for the model to be printable, it must be a single solid body. Thus, the offset applies a scalar to the base of each induvial pyramid (scaling the heights accordingly to make the pyramids equilateral) that results in the pyramids intersecting each other in the model. In my models, this offset was set to the nozzle/line width (0.4mm).
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/16441759/160552714-5573e15d-0d6a-4bb1-ad54-bab7c27b65c7.png" alt>
 </p>
 <p align="center">
-    <em>A 4 recursion pryamid without the solid model offset.</em>
+    <em>A 4 recursion pyramid without the solid model offset.</em>
 </p>
 
 
 ### Keychains
-While I could have also programmatically generated the keychain base in OpenSCAD, it was much easier to export the geometry of the pryamid and add the base in a parametric CAD software. The only issue with this approach was that OpenSCAD only lets you export the native geometry as a .csg file which is only supported by FreeCAD, and FreeCAD is a pain to use.
+While I could have also programmatically generated the keychain base in OpenSCAD, it was much easier to export the geometry of the pyramid and add the base in a parametric CAD software. The only issue with this approach was that OpenSCAD only lets you export the native geometry as a .csg file which is only supported by FreeCAD, and FreeCAD is a pain to use.
 
-After messing around with FreeCAD's horrible sketching interface for an hour, I made the base of the pryamid and was able to combine that with the raw OpenSCAD geometry.
+After messing around with FreeCAD's horrible sketching interface for an hour, I made the base of the pyramid and was able to combine that with the raw OpenSCAD geometry.
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/16441759/160355747-7b69ac51-e2c5-46f6-81fa-4283e271f765.png" alt>
@@ -179,9 +179,9 @@ After messing around with FreeCAD's horrible sketching interface for an hour, I 
     <em>Finished model in FreeCAD</em>
 </p>
 
-The design of the keychain was partially driven by the dimensions of my 3D printer. Since the pryamids were printed in spiral vase mode, I had to print each one "individually" before moving onto the next. Since I had to make ~20 keychains, I didn't want to have to restart the print every time.
+The design of the keychain was partially driven by the dimensions of my 3D printer. Since the pyramids were printed in spiral vase mode, I had to print each one "individually" before moving onto the next. Since I had to make ~20 keychains, I didn't want to have to restart the print every time.
 
-To get around this, I could take advantage of the 400mm^2 bed of the RatRig V-Core 3 and print multiple pryamids, side by side. The only caveat with this method is that each pryamid had to be far enough from the others that the print head could mode around it without hitting completed pryamids and the pryamids had to be shorter than the x gantry so it could pass over them.
+To get around this, I could take advantage of the 400mm^2 bed of the RatRig V-Core 3 and print multiple pyramids, side by side. The only caveat with this method is that each pyramid had to be far enough from the others that the print head could mode around it without hitting completed pyramids and the pyramids had to be shorter than the x gantry so it could pass over them.
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/16441759/160666341-fbcee9dc-893d-411b-b3ab-d23329761b7c.png" alt>
@@ -223,7 +223,7 @@ And finally, exported the Onshape bodies as an STL and used that as a negative v
 
 
 ### Printing 🎉
-Printing the "pryamids" went relatively smoothly thanks to the checks and preparation of the model beforehand. Initially, I was printing the first layer too fast so the MIT logo lost some detail but after slowing it down, it showed up really well.
+Printing the "pyramids" went relatively smoothly thanks to the checks and preparation of the model beforehand. Initially, I was printing the first layer too fast so the MIT logo lost some detail but after slowing it down, it showed up really well.
 
 <p align="center">
     <img src="https://i.imgur.com/LLkTUQY.gif" alt>
