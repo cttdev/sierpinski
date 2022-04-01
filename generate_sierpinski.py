@@ -3,15 +3,15 @@ from solid.utils import *
 import math
 
 def calculate_height(size):
-    # Returns the height of an equaliterial sqaure pryamid given the size of its base.
+    # Returns the height of an equaliterial sqaure pyramid given the size of its base.
     return (1.0 / math.sqrt(2.0)) * size
 
 def generate_pyramid(size, height, solid_model_offset=0.0):
-    # Generates a square pryamid of a given size and height with the center of the base at the origin.
-    # Solid model offset is a hack to get the pryamid to generate as a single solid model for sprial vase mode printing. It adds a scalar to the size of the pryamid.
+    # Generates a square pyramid of a given size and height with the center of the base at the origin.
+    # Solid model offset is a hack to get the pyramid to generate as a single solid model for sprial vase mode printing. It adds a scalar to the size of the pyramid.
     return polyhedron(
         [   
-            # Points of a square pryamid.
+            # Points of a square pyramid.
             [size/2 + solid_model_offset, size/2 + solid_model_offset, 0],
             [-size/2 - solid_model_offset, size/2 + solid_model_offset, 0],
             [-size/2 - solid_model_offset, -size/2 - solid_model_offset, 0],
@@ -27,11 +27,11 @@ def generate_pyramid(size, height, solid_model_offset=0.0):
         ]
     )
 
-def sirpinski(iterations, size, solid_model_offset=0.0):
+def sierpinski(iterations, size, solid_model_offset=0.0):
     if iterations == 0:
         return generate_pyramid(size, calculate_height(size + 2 * solid_model_offset), solid_model_offset)
 
-    # Each pryamid is filled with pryamids half of its size.
+    # Each pyramid is filled with pyramids half of its size.
     size = size/2
     height = calculate_height(size)
 
@@ -51,16 +51,16 @@ def sirpinski(iterations, size, solid_model_offset=0.0):
         rotate([0, 0, 0]),
         rotate([0, 0, 0]),
         rotate([0, 0, 0]),
-        rotate([180, 0, 0]) # Flipped pryamid to make the half octahedron.
+        rotate([180, 0, 0]) # Flipped pyramid to make the half octahedron.
     ]
         
-    # Recursively generate the pryamid.
+    # Recursively generate the pyramid.
     pyramids = []
     for i in range(0, len(translations)):
         pyramids.append(
             translations[i](
                 rotations[i](
-                    sirpinski(iterations-1, size, solid_model_offset)
+                    sierpinski(iterations-1, size, solid_model_offset)
                 )
             )
         )
@@ -80,7 +80,7 @@ def assembly():
     solid_model_offset = 0.4
 
     a = union()
-    a = sirpinski(iterations, size, solid_model_offset)
+    a = sierpinski(iterations, size, solid_model_offset)
     a = remove_solid_model_artifacts(a, size)
 
     return a, iterations, size, solid_model_offset
