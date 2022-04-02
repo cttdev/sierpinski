@@ -153,7 +153,7 @@ Since the recursion is handled during the OpenSCAD code generation, the generate
     <img src="https://user-images.githubusercontent.com/16441759/160354859-0dbb073e-5385-4350-9cb4-e03ad5af2044.png" alt>
 </p>
 <p align="center">
-    <em>A 4 recursion pyramid I generated.</em>
+    <em>A 4 recursion pyramid.</em>
 </p>
 
 ### Printability
@@ -200,7 +200,7 @@ To get around this, I could take advantage of the 400mm^2 bed of the RatRig V-Co
 Each keychain was printed at 200 mm/s with 4500 mm/s^2 acceleration which is relatively conservative for the V-Core 3 but I wanted to be sure that the small features came out well.
 
 ### MIT Logo
-Wanting to make the keychains more detailed, I decided to emboss a MIT logo into the first layer. This was relatively easy as I found an SVG that I converted to a DXF with Inkscape.
+Wanting to make the keychains more personalized, I decided to emboss a MIT logo into the first layer. This was relatively easy as I found an SVG that I converted to a DXF with Inkscape.
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/16441759/160555154-39bd8523-71a0-46be-8254-fae2531be101.png" alt>
@@ -209,9 +209,15 @@ Wanting to make the keychains more detailed, I decided to emboss a MIT logo into
     <em>The MIT logo in Inkscape.</em>
 </p>
 
-Used the DXF to extrude a solid the height of the first layer in Onshape.
+Then used the DXF to extrude a solid the height of the first layer (0.2mm) in Onshape and mirrored the logo to get it to show up the right way on the bottom of the object.
 
-Mirrored the logo to get it to show up the right way on the bottom of the object.
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/16441759/161372897-3e9d9322-2070-4013-aa26-1b4004a0ca0c.png" alt>
+</p>
+<p align="center">
+    <em>The mirrored MIT logo bodies in Onshape.</em>
+</p>
+
 
 And finally, exported the Onshape bodies as an STL and used that as a negative volume on the pyramid in Prusaslicer.
 <p align="center">
