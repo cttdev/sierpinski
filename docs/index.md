@@ -211,7 +211,7 @@ To get around this, I could take advantage of the 400mm^2 bed of the RatRig V-Co
 Each keychain was printed at 200 mm/s with 4500 mm/s^2 acceleration which is relatively conservative for the V-Core 3 but I wanted to be sure that the small features came out well.
 
 ### MIT Logo
-Wanting to make the keychains more personalized, I decided to emboss a MIT logo into the first layer. This was relatively easy as I found an SVG that I converted to a DXF with Inkscape.
+To make the keychains more personalized, I decided to emboss a MIT logo into the first layer. This was relatively easy as I found an SVG that I converted to a DXF with Inkscape.
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/16441759/160555154-39bd8523-71a0-46be-8254-fae2531be101.png" alt>
