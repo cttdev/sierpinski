@@ -190,11 +190,22 @@ To get around this, I could take advantage of the 400mm^2 bed of the RatRig V-Co
     <em>A view of the printhead clearance regions in Prusaslicer. I could print a maximum of 9 at a time.</em>
 </p>
 
+<br>
+
 <p align="center">
     <img src="https://user-images.githubusercontent.com/16441759/160667228-e6b3fa9c-bea0-4ca9-8cf9-3d885b92294d.png" alt>
 </p>
 <p align="center">
     <em>A gcode preview of the models being printed one at a time.</em>
+</p>
+
+<br>
+
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/16441759/161407442-b77368b3-5200-45c0-add3-281f3fcb1297.png" alt>
+</p>
+<p align="center">
+    <em>The pyramids fit under the printer x gantry.</em>
 </p>
 
 Each keychain was printed at 200 mm/s with 4500 mm/s^2 acceleration which is relatively conservative for the V-Core 3 but I wanted to be sure that the small features came out well.
