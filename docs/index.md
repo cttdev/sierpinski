@@ -157,7 +157,7 @@ Since the recursion is handled during the OpenSCAD code generation, the generate
 </p>
 
 ### Printability
-One part of the code that I have ignored up until now is the `solid_model_offset`, which is what allows these generated pyramids to be printable. Without the offset, each smll "pyramid" created by the recursion is treated as a separate body, only joined to each other at a single point. While this is the geometrically accurate representation of the octahedron flake, in order for the model to be printable, it must be a single solid body. Thus, the offset applies a scalar to the base of each induvial pyramid (scaling the heights accordingly to make the pyramids equilateral) that results in the pyramids intersecting each other in the model. In my models, this offset was set to the nozzle/line width (0.4mm).
+One part of the code that I have ignored up until now is the `solid_model_offset`, which is what allows the generated pyramids to be printable. Without the offset, each small pyramid created by the recursion is treated as a separate body, only "touching" other pryamids at single point. While this is the geometrically accurate representation of the octahedron flake, in order for the model to be printable, it must be a single solid body. Thus, the offset applies a scalar to the base of each individual pyramid (scaling the heights accordingly to make the pyramids equilateral) that results in the pyramids intersecting each other, creating a solid model. In my models, this offset was set to the nozzle/line width (0.4mm).
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/16441759/160552714-5573e15d-0d6a-4bb1-ad54-bab7c27b65c7.png" alt>
