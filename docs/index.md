@@ -255,4 +255,13 @@ Here are some videos of printing everything on the RatRig V-Core 3 I built:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cC4vore8kck" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Overall, I really enjoyed this project and was pretty happy with the end result. There are definitely ways I want to improve the code in the future, like fixing issues with some of the layer geometries, but for this specific use case, the process and script I developed worked very well.
+I also uploaded both a STL of the model and a 3MF Prusaslicer file to the Github repository if you want to print your own. Just be sure you print the model in spiral vase mode and with 8 bottom layers at 0.2mm layer height (so the keychain base is printed solid as it is 1.6mm thick).
+
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/16441759/161406897-1d469662-ddb6-4c19-9eb0-66e620c03296.png" alt>
+</p>
+<p align="center">
+    <em>The print settings I used.</em>
+</p>
+
+Overall, I really enjoyed this project and was pretty happy with the end result. There are definitely ways I want to improve the code in the future, like fixing issues with some of the layer geometries, but for this specific use case the script worked very well.
